@@ -39,7 +39,7 @@ export const Form = () => {
     setForm({ name: '', phone: '' });
   };
 
-  const { name, number } = form;
+  const { name, phone } = form;
   return (
     <div className={styles.section}>
       <form onSubmit={handleSubmit}>

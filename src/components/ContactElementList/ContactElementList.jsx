@@ -3,9 +3,7 @@ import { useDeleteContactMutation } from 'contactStorage/contactAPI';
 import styles from '../Form/Form.module.css';
 
 export const Contact = ({ id, name, number }) => {
-  const [deleteContact, { isLoading }] = useDeleteContactMutation();
-
-  const deleteContacts = id => dispatch(deleteContact(id));
+  const [deleteContacts, { isLoading }] = useDeleteContactMutation();
 
   return (
     <li id={id} className={styles.item}>
