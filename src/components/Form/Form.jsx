@@ -4,13 +4,13 @@ import Notiflix from 'notiflix';
 import {
   useGetContactsQuery,
   useAddContactMutation,
-} from 'contactsStorage/contactsAPI';
+} from 'contactStorage/contactAPI';
 import styles from './Form.module.css';
 
 export const Form = () => {
   const [form, setForm] = useState({ name: '', phone: '' });
   const { data: contacts } = useGetContactsQuery();
-  const [addContact, { isLoading }] = useAddContactMutation();
+  const [addContacts, { isLoading }] = useAddContactMutation();
 
   const handleChange = element => {
     const { name, value } = element.currentTarget;

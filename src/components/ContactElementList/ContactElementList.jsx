@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useDeleteContactMutation } from 'contactsStorage/contactsAPI';
+import { useDeleteContactMutation } from 'contactStorage/contactAPI';
 import styles from '../Form/Form.module.css';
 
 export const Contact = ({ id, name, number }) => {

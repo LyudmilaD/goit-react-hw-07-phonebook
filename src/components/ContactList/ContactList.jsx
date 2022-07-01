@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import Contact from '../ContactElementList/ContactElementList';
-import { useGetContactsQuery } from 'contactsStorage/contactsAPI';
+import { useGetContactsQuery } from 'contactStorage/contactAPI';
 import styles from '../Form/Form.module.css';
 
 const getContacts = () => {
