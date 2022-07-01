@@ -1,23 +1,30 @@
 import { useSelector } from 'react-redux';
 import Contact from '../ContactElementList/ContactElementList';
+import { useGetContactsQuery } from 'contactsStorage/contactsAPI';
 import styles from '../Form/Form.module.css';
 
-const getContacts = (items, filter) =>
-  items.filter(contact =>
+const getContacts = () => {
+  if (filter === '') {
+    return contacts;
+  }
+
+  return contacts.filter(contact =>
     contact.name.toLowerCase().includes(filter.toLowerCase())
   );
-
+};
 export const ContactList = () => {
-  const items = useSelector(state => state.contacts.items);
-  const filter = useSelector(state => state.contacts.filter);
-  const contacts = getContacts(items, filter);
+  const { data: contacts, isSuccess } = useGetContactsQuery();
+  const filter = useSelector(state => state.filter);
+  const items = getContacts();
   return (
     <ul className={styles.wrap}>
-      {contacts.length
-        ? contacts.map(({ id, name, number }) => (
-            <Contact key={id} id={id} name={name} number={number} />
-          ))
-        : 'No contacts'}
+      {isSuccess &&
+        items.map(({ id, name, phone }) => (
+          <Contact key={id} id={id} name={name} number={number} />
+        ))}
+      {items && items.length === 0 && (
+        <span className={styles.button}> No contacts </span>
+      )}
     </ul>
   );
 };
