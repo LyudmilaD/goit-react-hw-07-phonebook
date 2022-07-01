@@ -1,18 +1,20 @@
 import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
-import { deleteContact } from 'contactStorage/contactSlice';
-
+import { useDeleteContactMutation } from 'contactsStorage/contactsAPI';
 import styles from '../Form/Form.module.css';
 
 export const Contact = ({ id, name, number }) => {
-  const dispatch = useDispatch();
+  const [deleteContact, { isLoading }] = useDeleteContactMutation();
 
   const deleteContacts = id => dispatch(deleteContact(id));
 
   return (
     <li id={id} className={styles.item}>
       {name}: {number}
-      <button className={styles.button} onClick={() => deleteContacts(id)}>
+      <button
+        className={styles.button}
+        onClick={() => deleteContacts(id)}
+        disabled={isLoading}
+      >
         Delete
       </button>
     </li>
