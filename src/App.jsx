@@ -11,16 +11,5 @@ export const App = () => {
       <Filter />
       <ContactList />
     </div>
-    // <>
-    //   <div className={styles.wrap}>
-    //     <h1 className={styles.title}>Phonebook</h1>
-    //   </div>
-    //   <Form />
-    //   <div className={styles.section}>
-    //     <h2 className={styles.title}>Contacts</h2>
-    //   </div>
-    //   <Filter />
-    //   <ContactList />
-    // </>
   );
 };
