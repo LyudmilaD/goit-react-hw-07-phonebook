@@ -1,16 +1,16 @@
 import PropTypes from 'prop-types';
-import { useDeleteContactMutation } from 'contactStorage/contactAPI';
+import { useDeleteContactMutation } from 'contactsStorage/contactsAPI';
 import styles from '../Form/Form.module.css';
 
 export const Contact = ({ id, name, number }) => {
-  const [deleteContacts, { isLoading }] = useDeleteContactMutation();
+  const [deleteContact, { isLoading }] = useDeleteContactMutation();
 
   return (
     <li id={id} className={styles.item}>
       {name}: {number}
       <button
         className={styles.button}
-        onClick={() => deleteContacts(id)}
+        onClick={() => deleteContact(id)}
         disabled={isLoading}
       >
         Delete

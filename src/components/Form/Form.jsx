@@ -4,13 +4,13 @@ import Notiflix from 'notiflix';
 import {
   useGetContactsQuery,
   useAddContactMutation,
-} from 'contactStorage/contactAPI';
+} from 'contactsStorage/contactsAPI';
 import styles from './Form.module.css';
 
 export const Form = () => {
   const [form, setForm] = useState({ name: '', phone: '' });
   const { data: contacts } = useGetContactsQuery();
-  const [addContacts, { isLoading }] = useAddContactMutation();
+  const [addContact, { isLoading }] = useAddContactMutation();
 
   const handleChange = element => {
     const { name, value } = element.currentTarget;
@@ -30,7 +30,7 @@ export const Form = () => {
       return Notiflix.Notify.failure(`${data.name} is already in phonebook`);
     }
 
-    addContacts(data);
+    addContact(data);
 
     inputClean();
   };
@@ -41,7 +41,7 @@ export const Form = () => {
 
   const { name, phone } = form;
   return (
-    <div className={styles.section}>
+    <div className={styles.wrap}>
       <form onSubmit={handleSubmit}>
         <label className={styles.formLabel}>
           Name

@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-export const contactApi = createApi({
+export const contactsApi = createApi({
   reducerPath: 'contacts',
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://62bf63980bc9b125616cd224.mockapi.io',
@@ -11,7 +11,7 @@ export const contactApi = createApi({
       query: () => '/contacts',
       providesTags: ['Contact'],
     }),
-    addContacts: buider.mutation({
+    addContact: buider.mutation({
       query: data => ({
         url: '/contacts',
         method: 'POST',
@@ -19,7 +19,7 @@ export const contactApi = createApi({
       }),
       invalidatesTags: ['Contact'],
     }),
-    deleteContacts: buider.mutation({
+    deleteContact: buider.mutation({
       query: id => ({
         url: `/contacts/${id}`,
         method: 'DELETE',
@@ -33,4 +33,4 @@ export const {
   useGetContactsQuery,
   useDeleteContactMutation,
   useAddContactMutation,
-} = contactApi;
+} = contactsApi;

@@ -4,12 +4,16 @@ import Filter from '././components/Filter/Filter';
 import styles from '././components/Form/Form.module.css';
 export const App = () => {
   return (
-    <div className={styles.wrap}>
-      <h1>Phonebook</h1>
+    <>
+      <div className={styles.wrap}>
+        <h1 className={styles.title}>Phonebook</h1>
+      </div>
       <Form />
-      <h2>Contacts</h2>
+      <div className={styles.section}>
+        <h2 className={styles.title}>Contacts</h2>
+      </div>
       <Filter />
       <ContactList />
-    </div>
+    </>
   );
 };

@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { changeFilter } from 'contactStorage/contactSlice';
+import { changeFilter } from 'contactsStorage/contactsSlice';
 
 import styles from '../Form/Form.module.css';
 
