@@ -7,7 +7,7 @@ export const Contact = ({ id, name, number }) => {
 
   return (
     <li id={id} className={styles.item}>
-      <span className={styles.name}>{name}</span>: {number}
+      {name}: {number}
       <button
         className={styles.button}
         onClick={() => deleteContacts(id)}
